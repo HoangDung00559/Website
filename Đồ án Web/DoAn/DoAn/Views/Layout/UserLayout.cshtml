@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Trang Chủ</title>
+    <link href="~/Content/UserCssLayout/screen.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/fonts.css" rel="stylesheet" />
+
+    <!--Css thiết kế -->
+    <link href="~/Content/UserCssLayout/UserCss.css" rel="stylesheet" />
+
+
+
+    <!--Ký Tự đặt biệt -->
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <!-- Cài đặt cho slider -->
+    <link href="~/Scripts/slider/nivo-slider.css" rel="stylesheet" />
+    <script src="~/Scripts/slider/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/slider/jquery.nivo.slider.js"></script>
+    <script src="~/Scripts/slider/jquery.nivo.slider.pack.js"></script>
+
+
+</head>
+<body>
+
+    <div class="bodytoantrang">
+
+        <section class="blank">
+            <div class="flash">
+                <div class="nameshop">
+
+                    <h2><a href="@Url.Action("Index","Home")"><i class="fa fa-pagelines " aria-hidden="true"></i> Organic TT.VN</a></h2>
+                </div>
+                <div class="Dangnhapdangky">
+                    <i class="fa fa-user-circle-o" aria-hidden="true">
+                        <a href="@Url.Action("IndexAdmin", "QuanLySanPham", new { @class = "DangKy" })">ADMIN</a>
+                    </i>
+                    <i class="fa fa-user-circle-o" aria-hidden="true">
+                        <a href="@Url.Action("DangKy", "NguoiDung", new { @class = "DangKy" })">ĐĂNG KÝ</a>
+                    </i>
+
+                    <i class="fa fa-user-plus" aria-hidden="true">
+                        <a href="@Url.Action("DangNhap", "NguoiDung", new { @class = "DangNhap" })">ĐĂNG NHẬP</a>
+                    </i>
+
+                    @Html.Action("GioHangPartial", "GioHang")
+
+                </div>
+            </div>
+
+
+            <div class="flash success" id="divdanhmuc">
+
+                <!--Hộp thoại tìm kiếm -->
+                <div id="txttimkiem">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập từ khóa bạn cần tìm.." })
+                        <div id="Hinhanhtimkiem">
+                            <button type="submit" onsubmit="return false;">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    }
+
+
+                </div>
+
+                <!--Menu bên phải  -->
+                <ul class="navmenu">
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Trang Chủ </a>
+                    </li>
+                    <li>
+                        <a href="#">Giới Thiệu</a>
+                    </li>
+                    <li>
+                        <a href="#"> Hướng Dẫn</a>
+                    </li>
+                    <li>
+                        <a href="#"> Sản Phẩm </a>
+                    </li>
+                    <li>
+                        <a href="#"> Liên hệ  </a>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- Slider hình ảnh -->
+        <div id="Slider" class="nivoSlider">
+            <img src="~/HinhAnh/Untitled-1.png" />
+            <img src="~/HinhAnh/Untitled-2.png" />
+            <img src="~/HinhAnh/Untitled-3.png" />
+        </div>
+        <div style="clear:both"></div>
+
+
+
+        <section>
+            <div id="divmenutrai">
+                <div class="activity">
+                    @Html.Action("SanPhamMoi", "NongSan")
+
+                </div>
+            </div>
+
+            <div id="slider" class="nivoSlider">
+                <img src="~/HinhAnh/Untitled-1.png" />
+                <img src="~/HinhAnh/Untitled-2.png" />
+                <img src="~/HinhAnh/Untitled-3.png" />
+            </div>
+            <div style="clear:both"></div>
+        </section>
+
+
+
+
+        <div id="noidung">
+
+            @RenderBody()
+        </div>
+
+
+
+
+
+        <section>
+
+
+            <div id="Chude">
+                @Html.Action("ChuDePartial", "ChuDe")
+
+            </div>
+
+        </section>
+
+        <!-- -->
+        <section class="blank items">
+
+            <div id="divleft">
+
+                <div class="item">
+
+
+                    <div class="item-info">
+
+                        <!---  Nơi sản xuất  -->
+                        @Html.Action("NoiSanXuatPartial", "NoiSanXuat")
+                        <img src="~/HinhAnh/AnhSP/hinh-anh-dep-ve-rau-cu-qua-31.jpg" />
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div id="divNoiDungBenPhai">
+
+                @RenderSection("NoiDungBenPhai", false)
+
+            </div>
+            <div style="clear:both"></div>
+
+
+            <!--phần cuối -->
+            <div>
+                <a href="@Url.Action("Index","Home")" class="button button-buy">Organic TT.vn</a>
+
+            </div>
+        </section>
+
+
+
+    </div>
+    <!-- chạy slider-->
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                controlNav: false,
+                nextText: '',
+                prevText: ''
+
+            });
+
+        });
+    </script>
+</body>
+<footer class="container well" style="background-color:#2a2222">
+    <div class="row">
+        <div class="col-lg-15 col-md-15 col-sm15 col-xs-15" style="text-align:center; color:#ffffff">
+            <p>©2021 - Organic TT.VN</p>
+            <p>NGUYEN CONG HOANG DUNG - D19HT02</p>
+            <p>Email: 1924801040157@student.tdmu.edu.vn</p>
+        </div>
+    </div>
+
+</footer>
+
+</html>

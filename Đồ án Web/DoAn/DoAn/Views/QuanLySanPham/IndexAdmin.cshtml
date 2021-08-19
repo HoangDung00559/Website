@@ -1,0 +1,111 @@
+﻿
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<DoAn.Models.SanPham>
+
+
+@{
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("Thêm Mới Sản Phẩm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().MaSP)> Mã Sản Phẩm </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().TenSP)> Tên Sản Phẩm </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().GiaBan)> Giá Bán </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().MoTa)> Mô Tả </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().AnhBia)> Ảnh </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().NgayCapNhat)> Ngày Cập Nhật </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().SoLuongTon)> Số Lượng Tồn </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().MaNSX)> Nhà Sản Xuất </p>
+        </th>
+        <th>
+            <p @Html.DisplayNameFor(model => model.First().MaLoaiSP)> Loại Sản Phẩm </p>
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                <div id="AnhBia">
+                    <img src="@Url.Content("~/HinhAnh/AnhSP/Rau/"+item.AnhBia)" width="200" height="200" />
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.XuatXu.TenNSX)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoaiThucPham)
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Chỉnh Sửa", "Edit", new { @MaSP = item.MaSP }) |
+                @Html.ActionLink("Hiển Thị", "Details", new { @MaSP = item.MaSP }) |
+                @Html.ActionLink("Xóa", "Delete", new { @MaSP = item.MaSP })
+            </td>
+        </tr>
+    }
+
+</table>
+<!-- tạo Link liên kết cho các trang-->
+Trang @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber ) / @Model.PageCount
+<div class="menuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("IndexAdmin", new { page = page }))
+</div>
+
+<style>
+    .menuTrang {
+        padding-left: 45%;
+    }
+
+        .menuTrang li {
+            display: inline;
+        }
+</style>
+
+
+
+

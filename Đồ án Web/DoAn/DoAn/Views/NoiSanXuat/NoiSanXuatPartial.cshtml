@@ -1,0 +1,23 @@
+﻿
+@using DoAn.Models;
+@model List<XuatXu>
+<link href="~/Content/UserCssLayout/TrangChu.css" rel="stylesheet" />
+
+<div id="noisanxuat">
+    <h1>
+        Nơi Sản Xuất: 
+    </h1>
+    @foreach (var item in Model)
+    {
+
+        <div class="itemNSX">
+            <a href="@Url.Action("SanPhamTheoNSX", new {@MaNSX=item.MaNSX })">@item.TenNSX </a>
+        </div>
+
+
+    }
+
+</div>
+<div style="clear:both"></div>
+
+

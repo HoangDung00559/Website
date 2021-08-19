@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+    <meta name="viewport" content="width=device-width" />
+    <title> ADMIN</title>
+    <link href="~/Content/Admin/vendors/styles/core.css" rel="stylesheet" />
+    <link href="~/Content/Admin/vendors/styles/icon-font.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/src/plugins/datatables/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/vendors/styles/style.css" rel="stylesheet" />
+
+
+
+
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-119386393-1');
+    </script>
+</head>
+<body>
+
+    <!--Load Logo -->
+    <div class="pre-loader">
+        <div class="pre-loader-box">
+            <div class="loader-logo" style="text-align:center">
+
+                <img src="~/HinhAnh/logo.png" alt="" width="90" height="90">
+                <a href="@Url.Action("IndexAdmin","QuanLySanPham")"><h2 style="color:palegreen">Organic TT.vn</h2></a>
+            </div>
+            <div class='loader-progress' id="progress_div">
+                <div class='bar' id='bar1'></div>
+            </div>
+            <div class='percent' id='percent1'>0%</div>
+            <div class="loading-text">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+
+    <!-- header   -->
+    <div class="header">
+        <!-- Trái-->
+        <div class="header-left">
+            <div class="menu-icon dw dw-menu"></div>
+            <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
+            <div class="header-search">
+                <form>
+                    <div class="form-group mb-0">
+                        <i class="dw dw-search2 search-icon"></i>
+                        <input type="text" class="form-control search-input" placeholder="Search Here">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
+                                <i class="ion-arrow-down-c"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label">From</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input class="form-control form-control-sm form-control-line" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label">To</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input class="form-control form-control-sm form-control-line" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input class="form-control form-control-sm form-control-line" type="text">
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+     
+        <!--  Phải -->
+        <div class="header-right">
+            <div class="dashboard-setting user-notification">
+                <div class="dropdown">
+                    <a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
+                        <i class="dw dw-settings2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="user-notification">
+                <div class="dropdown">
+                    <a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
+                        <i class="icon-copy dw dw-notification"></i>
+                        <span class="badge notification-active"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="notification-list mx-h-350 customscroll">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/HinhAnh/noavt.jpg" alt="">
+                                        <h3>John Doe</h3>
+                                        <p>Admin đẹp trai quá</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/HinhAnh/noavt.jpg" alt="">
+                                        <h3>Lea R. Frith</h3>
+                                        <p>Yêu Admin</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/HinhAnh/noavt.jpg" alt="">
+                                        <h3>Erik L. Richards</h3>
+                                        <p>Bán tui 5k rau muống</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/HinhAnh/noavt.jpg" alt="">
+                                        <h3>John Doe</h3>
+                                        <p>Cho xin trái bí đỏ</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/HinhAnh/noavt.jpg" alt="">
+                                        <h3>Renee I. Hansen</h3>
+                                        <p>Hi Admin</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/HinhAnh/noavt.jpg" alt="">
+                                        <h3>Vicki M. Coleman</h3>
+                                        <p>Bán 10k cà muối đê</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Thông Tin ADmin-->
+            <div class="user-info-dropdown">
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                        <span class="user-icon">
+                            <img src="~/HinhAnh/avt.jpg"  alt=""/>
+                        </span>
+                        <span class="user-name">NGUYEN CONG HOANG DUNG</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                        <a class="dropdown-item" href="https://www.facebook.com/DungHoang1009/"><i class="dw dw-user1"></i> Profile</a>
+                        <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+                        <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+                        <a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+
+
+
+    <!-- Thanh menu -->
+    <div class="left-side-bar">
+        <div class="brand-logo">
+            <a href="@Url.Action("IndexAdmin","QuanLySanPham")">
+                <h2 style="color:lightgreen">Organic TT.vn</h2>
+            </a>
+        </div>
+
+
+        <div class="menu-block customscroll">
+            <div class="sidebar-menu">
+                <ul id="accordion-menu">
+                    <li class="dropdown">
+                        <a href="javascript:; @Url.Action("IndexAdmin","QuanLySanPham")" class="dropdown-toggle">
+                            <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+                        </a>
+                        <ul class="submenu">
+                            <li> <a href="@Url.Action("IndexAdmin","QuanLySanPham")"><i class="fa fa-pagelines" aria-hidden="true"></i> QUẢN LÝ SẢN PHẨM </a></li>
+                            <li> <a href="@Url.Action("Index","Home")"><i class="fa fa-pagelines" aria-hidden="true"></i> TRANG CHỦ </a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">
+                            <span class="micon dw dw-edit2"></span><span class="mtext">Forms</span>
+                        </a>
+                        
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">
+                            <span class="micon dw dw-library"></span><span class="mtext">Tables</span>
+                        </a>
+                    
+                    </li>
+                    
+                    <li>
+                        <a href="calendar.html" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-apartment"></span><span class="mtext"> UI Elements </span>
+                        </a>                        
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-paint-brush"></span><span class="mtext">Icons</span>
+                        </a>                        
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-analytics-21"></span><span class="mtext">Charts</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-right-arrow1"></span><span class="mtext">Additional Pages</span>
+                        </a>         
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-browser2"></span><span class="mtext">Error Pages</span>
+                        </a>                        
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-copy"></span><span class="mtext">Extra Pages</span>
+                        </a>                        
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-list3"></span><span class="mtext">Multi Level Menu</span>
+                        </a>                        
+                    </li>
+
+                    <li>
+                        <a href="sitemap.html" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-diagram"></span><span class="mtext">Sitemap</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="chat.html" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-chat3"></span><span class="mtext">Chat</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="invoice.html" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-invoice"></span><span class="mtext">Invoice</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <div class="dropdown-divider"></div>
+                    </li>
+
+                    <li>
+                        <div class="sidebar-small-cap">Extra</div>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-edit-2"></span><span class="mtext">Documentation</span>
+                        </a>                        
+                    </li>
+
+                    <li>
+                        <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-paper-plane1"></span>
+                            <span class="mtext">Landing Page <img src="vendors/images/coming-soon.png" alt="" width="25"></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+   
+    <div class="main-container">
+        @RenderBody()
+    </div>
+    <!-- js -->
+    <script src="~/Content/Admin/vendors/scripts/core.js"></script>
+    <script src="~/Content/Admin/vendors/scripts/script.min.js"></script>
+    <script src="~/Content/Admin/vendors/scripts/process.js"></script>
+    <script src="~/Content/Admin/vendors/scripts/layout-settings.js"></script>
+    <script src="~/Content/Admin/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="~/Content/Admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/Admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/Admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Content/Admin/vendors/scripts/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿@using DoAn.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+
+
+<link href="~/Content/UserCssLayout/TrangChu.css" rel="stylesheet" />
+
+
+
+@{
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+@section NoiDungBenPhai{
+    <div>
+        Vì sao nông nghiệp sạch là hướng đi đúng đắn?
+
+        Đáp ứng nhu cầu về lương thực, thực phẩm sạch của người tiêu dùng: Tình trạng thực phẩm bẩn, thực phẩm không rõ nguồn gốc tràn lan, bệnh hiểm nghèo (ung thư) liên quan đến thực phẩm bẩn gia tăng khiến người tiêu dùng ngày càng quan tâm đến các sản phẩm an toàn cho sức khoẻ. Phát triển nông nghiệp sạch là một hướng đi đúng đắn đáp ứng nhu cầu lớn về thực phẩm sạch.
+
+        Giảm tác động tiêu cực đến môi trường: với các phương pháp canh tác giảm thiếu tối đa việc sử dụng hoá chất (như thuốc trừ sâu, phân bón hoá học, thuốc bảo vệ thực vật) giúp giảm thiểu các tác động tiêu cực của hoạt động sản xuất đến môi trường đất, nước, không khí.
+
+        Mang lại nguồn lợi lớn cho nông dân: nông nghiệp sạch tăng chất lượng của sản phẩm, từ đó kéo giá thành sản phẩm lên, giúp nông dân tăng thu nhập và có được niềm tin của người tiêu dùng.
+
+        Chính phủ khuyến khích phát triển nông nghiệp sạch
+
+        Trong những năm qua, Chính phủ đã ban hành nhiều chính sách về sản xuất, kinh doanh, chế biến sản phẩm để khuyến khích phát triển nông nghiệp sạch, an toàn, khuyến khích các doanh nghiệp đầu tư vào nông nghiệp sạch. Có thể kể đến một số chính sách như: Nghị định 109/2018/NĐ-CP ngày 29/8/2018 của Chính phủ về nông nghiệp hữu cơ; Quyết định 01/2012/QĐ-TTg ngày 9/1/2012 của Thủ tướng Chính phủ về một số chính sách hỗ trợ việc áp dụng Quy trình thực hành sản xuất nông nghiệp tốt trong nông nghiệp, lâm nghiệp và thủy sản.
+
+        Chính phủ xác định phát triển nông nghiệp sạch ứng dụng công nghệ cao là chiến lược của đất nước trong bối cảnh hội nhập kinh tế quốc tế. Cùng với xu thế chung của thế giới, việc sáng tạo, ứng dụng khoa học công nghệ vào phát triển nông nghiệp giúp nâng cao khả năng cạnh tranh, mở rộng thị trường, nâng cao thu nhập và bảo vệ sức khỏe người sản xuất, người tiêu dùng. Quyết định 176/QĐ- TTg ngày 29/01/2010 phê duyệt Đề án phát triển nông nghiệp ứng dụng công nghệ cao đến năm 2020 là một động thái thể hiện sự ủng hộ mạnh mẽ của chính phủ đối với nền nông nghiệp sạch.
+
+        Theo thống kê của Bộ Nông nghiệp và Phát triển nông thôn, tính đến năm 2018, cả nước có 40 doanh nghiệp nông nghiệp ứng dụng công nghệ cao, sản xuất sản phẩm đảm bảo tiêu chuẩn quy chuẩn kỹ thuật được cấp giấy chứng nhận còn hiệu lực. Trong đó có 12 doanh nghiệp lĩnh vực trồng trọt, 19 doanh nghiệp lĩnh vực thủy sản và 09 doanh nghiệp lĩnh vực chăn nuôi.
+
+
+    </div>
+}
+
+
+<div id="tem">
+
+    <h1>Sản Phẩm Mới:</h1>
+</div>
+<div id="divBody" style="background:white">
+
+    @{int i = 0;}
+    @foreach (var item in Model)
+    {
+        i++;
+        <div id="SanPham">
+            <a href="@Url.Action("XemChiTiet","NongSan",new { @MaSP=item.MaSP   })">
+                <div id="AnhBia">
+                    <img src="@Url.Content("~/HinhAnh/AnhSP/Rau/"+item.AnhBia)" width="200" height="200" />
+                </div>
+            </a>
+
+            <div id="ThongTin">
+                <div id="TenSP">Sản Phẩm: @item.TenSP  </div>
+
+                <div id="GiaSP">Giá:<a>@item.GiaBan </a>VND/KG </div>
+            </div>
+            <div id="GioHang">
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSP = item.MaSP, @strURL = Request.Url.ToString() }))
+                {
+                    <input type="submit" style="cursor:pointer" value="Mua Hàng &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                }
+            </div>
+        </div>
+
+
+        if (i % 4 == 0)
+        {
+            <div style="clear:both"></div>
+
+        }
+
+
+    }
+</div>
+<div style="clear:both"></div>
+
+
+<style>
+    #btnGioHang {
+        font-family: 'FontAwesome','Segoe UI';
+        background-color: green;
+    }
+
+        #btnGioHang:hover {
+            background-color: red;
+        }
+</style>
+
+<!-- tạo Link liên kết cho các trang-->
+<h4 style="text-align: center;">Trang @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber )/ @Model.PageCount</h4>
+<div class="menuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+
+<style>
+    .menuTrang{
+        padding-left:45%;
+    }
+    .menuTrang li {
+        display: inline;
+    }
+</style>
+
+
+
+

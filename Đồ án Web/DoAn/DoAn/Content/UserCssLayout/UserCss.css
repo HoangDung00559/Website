@@ -1,0 +1,130 @@
+﻿.bodytoantrang{
+    position:relative;
+    background-color:white;
+}
+.Dangnhapdangky {
+    object-fit: cover;
+    float: right;
+    margin-top: -1%;
+}
+.Dangnhapdangky i{
+padding-right:15px;
+
+}
+    .Dangnhapdangky a:hover{
+    text-decoration:none;
+    color:greenyellow;
+}
+.nameshop {
+    object-fit: cover;
+    float: left;
+    margin-top: -1%;
+    padding-left:20px;
+}
+    .nameshop h2:hover {
+        color: greenyellow;
+    }
+    /* css cho thanh menu */
+    #divdanhmuc {
+    height: 28px;
+}
+.navmenu{
+    float:right;
+    margin-right:30px;
+}
+    .navmenu li {
+        display: inline;
+        padding: 20px;
+        padding-top: 21px;
+        padding-bottom: 21px;
+        -webkit-transition: all 1s ease-out;
+        -moz-transition: all 1s ease-out;
+        -ms-transition: all 1s ease-out;
+    }
+    .navmenu a {
+        width: 80px;
+    }
+        .navmenu li:hover {
+        background-color: rgba(0, 0,0,.5);
+        -webkit-transition: all 1s ease-out;
+        -moz-transition: all 1s ease-out;
+        -ms-transition: all 1s ease-out;
+    }
+.navmenu a:hover{
+    text-decoration:none;
+}
+
+/* css cho thanh tìm kiếm */
+#txttimkiem{
+   float:left  ;
+   margin-left:30px;
+}
+#txttimkiem input{
+height:0;
+}
+
+
+#Hinhanhtimkiem {
+    float:right;
+    height:20px;
+}
+#Hinhanhtimkiem button{
+    padding:1px 1px 1px 1px;
+    background-color:#14a19a;
+}
+    #Hinhanhtimkiem button {
+        width: 30px;
+        height: 32px;
+        -webkit-transition: all 1s ease-out;
+        -moz-transition: all 1s ease-out;
+        -ms-transition: all 1s ease-out;
+    }
+
+        #Hinhanhtimkiem button:hover {
+            width: 30px;
+            height: 32px;
+            -webkit-transition: all 1s ease-out;
+            -moz-transition: all 1s ease-out;
+            -ms-transition: all 1s ease-out;
+            background-color:#477a77;
+        }
+
+
+
+
+/* css cho slide*/
+#slider {
+    float:right;
+    width:75%;
+    height:500px;
+}
+#divmenutrai{ 
+    width:25%;
+    float:left;
+}
+
+
+#divleft {
+    width: 30%;
+    float: left;
+}
+#divleft .item{
+    width: 100%;
+}
+#divNoiDungBenPhai{
+    width:70%;
+    float:right;
+}
+
+
+.tem h1{
+ margin-left:200px;
+}
+
+Chude button{
+    text-align:center;
+}
+Chude button:hover {
+   text-decoration:none;
+   background-color:antiquewhite;
+}

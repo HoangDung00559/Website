@@ -1,0 +1,29 @@
+﻿@using DoAn.Models;
+@model List<LoaiSanPham>
+<link href="~/Content/UserCssLayout/TrangChu.css" rel="stylesheet" />
+
+@foreach (var item in Model)
+{
+
+
+    <a href="@Url.Action("SPTheoChuDe",new {@MaLoaiSP=item.MaLoaiSP})" class="button">
+
+        <i class="fa fa-envira" aria-hidden="true"></i>
+
+    Loại Sản Phẩm:@item.TenLoaiThucPham
+    
+    </a>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

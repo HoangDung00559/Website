@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+<style>
+    .buttondn {
+        background-color: MidnightBlue;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+<h2 style="text-align: center;">ĐĂNG NHẬP</h2>
+
+<h4 style="text-align: center;">
+    @ViewBag.ThongBao
+</h4>
+@using (Html.BeginForm())
+{
+<div style="margin-left:300px">
+    <span>Tài Khoản: </span>
+    <br />
+    @Html.TextBox("txtTaiKhoan")
+    <br />
+    <span>Mật Khẩu: </span>
+    <br />
+    <input name="txtMatKhau" type="text" style="border: 1px solid #b1154a; color: black; " />
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input id="btnSubmit" type="submit" value="Đăng Nhập" class="buttondn" />
+
+        </div>
+
+    </div>
+    
+</div>
+}
+<p style="text-align: center;"><a href="@Url.Action("Index","Home")">Về Trang Chủ</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

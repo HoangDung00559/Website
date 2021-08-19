@@ -1,0 +1,26 @@
+﻿@using DoAn.Models;
+@model List<SanPham>
+
+
+<!-- Biến model -->
+
+<h1 class="item-header">Sản Phẩm Mới</h1>
+
+@{
+
+    foreach (var item in Model)
+
+    {
+        <div class="activity-list-update">
+            <img src="@Url.Content("~/HinhAnh/AnhSP/Rau/"+item.AnhBia)" alt="Image" width="60" height="60">
+            <p><strong>Tiêu Đề: @item.TenSP</strong><br /><a href="@Url.Action("XemChiTiet", new{ @MaSP=item.MaSP  })">Xem Chi Tiết </a></p>
+            <div class="clear"></div>
+        </div>
+
+    }
+}
+
+
+<a href="#" class="item-footer green">
+    Sẩn Phẩm Mới Nhất Trong Tuần.
+</a>
